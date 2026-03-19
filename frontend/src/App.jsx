@@ -18,7 +18,11 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { AudioProcessor } from './AudioProcessor';
 
-const socket = io('http://localhost:5001');
+const BACKEND_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5001' 
+  : 'https://voice-translate-ldun.onrender.com';
+
+const socket = io(BACKEND_URL);
 
 function App() {
   const [roomId, setRoomId] = useState('');
@@ -106,7 +110,7 @@ function App() {
           formData.append('sid', socket.id);
 
           try {
-            await fetch('http://localhost:5001/process-audio', {
+            await fetch(`${BACKEND_URL}/process-audio`, {
               method: 'POST',
               body: formData
             });
