@@ -1,0 +1,23 @@
+# Environments
+backend/venv/
+venv/
+.venv/
+.env
+
+# Dependencies
+frontend/node_modules/
+node_modules/
+
+# OS/IDEs
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Project-specific
+backend/temp_audio/
+temp_audio/
+frontend/dist/
+frontend/build/
+*.pyc
+__pycache__/
