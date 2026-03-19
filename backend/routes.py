@@ -24,7 +24,9 @@ async def process_audio(
     temp_dir = "temp_audio"
     os.makedirs(temp_dir, exist_ok=True)
     
-    file_extension = file.filename.split(".")[-1] if "." in file.filename else "wav"
+    # Extract file extension, handling None filename
+    filename = file.filename or "audio.wav"
+    file_extension = filename.split(".")[-1] if "." in filename else "wav"
     temp_path = os.path.join(temp_dir, f"{uuid.uuid4()}.{file_extension}")
     
     try:
