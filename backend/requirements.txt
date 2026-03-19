@@ -2,15 +2,10 @@ python-dotenv
 fastapi
 uvicorn
 python-socketio
-faster-whisper
-google-generativeai
+google-genai
 deep-translator
 gTTS
 python-multipart
 pydantic
 aiofiles
-soundfile
-librosa
-numpy
-torch
 ffmpeg-python

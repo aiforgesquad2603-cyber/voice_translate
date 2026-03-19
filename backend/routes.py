@@ -34,11 +34,9 @@ async def process_audio(
             f.write(content)
         
         # 1. Transcribe and Normalize once
-        transcription = ai_pipeline.speech_to_text(temp_path)
-        if not transcription:
+        normalized = ai_pipeline.audio_to_text(temp_path, source_lang=language)
+        if not normalized:
             return {"status": "skipped", "reason": "no_speech_detected"}
-            
-        normalized = ai_pipeline.normalize_text(transcription)
         print(f"Room {room_id} | Sender {sid} | Text: {normalized}")
 
         # 2. Identify recipients and their languages
